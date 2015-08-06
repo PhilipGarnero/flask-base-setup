@@ -1,0 +1,26 @@
+DEBUG: false
+SECRET: appsecret
+SQLALCHEMY_DATABASE_URI: postgresql://user:password@host/dbname
+SQLALCHEMY_POOL_SIZE: 1
+SQLALCHEMY_POOL_RECYCLE: 300
+SQLALCHEMY_MAX_OVERFLOW: -1
+CELERY_CONF:
+    BROKER_URL: redis://user:password@host:port/db1
+    CELERY_RESULT_BACKEND: redis://user:password@host:port/db2
+    CELERY_TASK_SERIALIZER: json
+    CELERY_RESULT_SERIALIZER: json
+LOGGERS:
+    file:
+        level: info
+        file_name: app.log
+        max_bytes: 52428800
+        backups: 10
+    stdout:
+        level: debug
+    syslog:
+        level: warning
+        device: /dev/log
+        host: localhost
+        port: 514
+        transport: UDP
+SENTRY: dsn
